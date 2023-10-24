@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}
+    Home page
+{% endblock title %}
+
+{% block content %}
+    <h1>blogpage</h1>
+    {% for post in post_list %}
+    <div>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
+    </div>
+{% endfor %}
+{% endblock content %}
