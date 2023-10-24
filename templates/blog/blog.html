@@ -3,13 +3,13 @@
 {% block title %}
     Home page
 {% endblock title %}
-
 {% block content %}
     <h1>blogpage</h1>
     {% for post in post_list %}
-    <div>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.body }}</p>
-    </div>
-{% endfor %}
+        <div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.body }}</p>
+            <a href="{% url 'post_detail' post.id %}">Read more...</a>
+        </div>
+    {% endfor %}
 {% endblock content %}
