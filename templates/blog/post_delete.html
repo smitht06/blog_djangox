@@ -1,0 +1,15 @@
+<!-- FILEPATH: /Users/tony/Documents/Coding_Projects/blog_djangox/templates/blog/post_delete.html -->
+{% extends '_base.html' %}
+{% block content %}
+    <h2>Delete Post</h2>
+    {% if post.author.pk == request.user.pk %}
+        <p>Are you sure you want to delete "{{ post.title }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'post_detail' post.id %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    {% else %}
+        <p>You are not the author of this post.</p>
+    {% endif %}
+{% endblock %}
